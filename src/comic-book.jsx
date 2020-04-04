@@ -41,7 +41,7 @@ class BookCover extends React.Component {
 		return (
 			<div className={`cover page-size ${this.props.flipThePage ? "left-page" : "right-page"}`}>
 				<div className="cover-title">Elaine's Book of Original Comics and Other Creations</div>
-				<button className="flip-page" onClick={this.props.handleFlip}></button>
+				<button className="flip-page-btn" onClick={this.props.handleFlip}></button>
 			</div>
 		)
 	}

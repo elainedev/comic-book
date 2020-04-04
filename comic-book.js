@@ -86,7 +86,7 @@ var BookCover = function (_React$Component3) {
 					{ className: "cover-title" },
 					"Elaine's Book of Original Comics and Other Creations"
 				),
-				React.createElement("button", { className: "flip-page", onClick: this.props.handleFlip })
+				React.createElement("button", { className: "flip-page-btn", onClick: this.props.handleFlip })
 			);
 		}
 	}]);

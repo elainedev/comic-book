@@ -17,6 +17,7 @@ body {
   width: 60%;
   height: 70%;
   background-color: yellow;
+  perspective: 1000px;
 }
 
 .page-size {
@@ -24,15 +25,12 @@ body {
   height: 100%;
   background-color: mintcream;
   position: absolute;
-}
-
-.right-page {
   right: 0;
 }
 
 .left-page {
-  right: inherit;
-  left: 0;
+  animation: page-flip 1.3s both;
+  transform-style: preserve-3d;
 }
 
 .cover {
@@ -49,13 +47,23 @@ body {
   margin: 7%;
 }
 
-.flip-page {
+.flip-page-btn {
   position: absolute;
   background-color: cream;
   width: 100px;
   height: 100px;
   right: 0;
   bottom: 0;
+}
+
+@keyframes page-flip {
+  0% {
+    transform: translateX(0) rotateY(0deg);
+  }
+  100% {
+    transform: translateX(-100%) rotateY(-180deg);
+    background-color: lavender;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
