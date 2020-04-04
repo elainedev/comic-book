@@ -32,19 +32,33 @@ var ComicBookPageContainer = function (_React$Component) {
 var BookContainer = function (_React$Component2) {
 	_inherits(BookContainer, _React$Component2);
 
-	function BookContainer() {
+	function BookContainer(props) {
 		_classCallCheck(this, BookContainer);
 
-		return _possibleConstructorReturn(this, (BookContainer.__proto__ || Object.getPrototypeOf(BookContainer)).apply(this, arguments));
+		var _this2 = _possibleConstructorReturn(this, (BookContainer.__proto__ || Object.getPrototypeOf(BookContainer)).call(this, props));
+
+		_this2.state = {
+			flipThePage: false
+		};
+		_this2.handleFlip = _this2.handleFlip.bind(_this2);
+		return _this2;
 	}
 
 	_createClass(BookContainer, [{
+		key: "handleFlip",
+		value: function handleFlip() {
+			console.log('page flipped');
+			this.setState({
+				flipThePage: true
+			});
+		}
+	}, {
 		key: "render",
 		value: function render() {
 			return React.createElement(
 				"div",
 				{ className: "book-container" },
-				React.createElement(BookCover, null)
+				React.createElement(BookCover, { flipThePage: this.state.flipThePage, handleFlip: this.handleFlip })
 			);
 		}
 	}]);
@@ -66,12 +80,13 @@ var BookCover = function (_React$Component3) {
 		value: function render() {
 			return React.createElement(
 				"div",
-				{ className: "cover page-size right-page" },
+				{ className: "cover page-size " + (this.props.flipThePage ? "left-page" : "right-page") },
 				React.createElement(
 					"div",
 					{ className: "cover-title" },
 					"Elaine's Book of Original Comics and Other Creations"
-				)
+				),
+				React.createElement("button", { className: "flip-page", onClick: this.props.handleFlip })
 			);
 		}
 	}]);
